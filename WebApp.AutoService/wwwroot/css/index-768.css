@@ -1,0 +1,48 @@
+﻿@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        height: calc(100vh - 64px);
+        transform: translateX(-100%);
+    }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+    .main-layout {
+        flex-direction: column;
+    }
+
+    .content-area {
+        padding: 16px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .user-name {
+        display: none;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .event-monitor {
+        width: calc(100% - 48px);
+        right: 16px;
+        bottom: 90px;
+    }
+
+    .progress-bar {
+        top: 64px;
+    }
+}

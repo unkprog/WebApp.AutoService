@@ -1,0 +1,81 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2024-01-15",
+  "settings": {
+    "companyName": "Автосервис Pro",
+    "companyAddress": "г. Москва, ул. Примерная, д. 123",
+    "companyPhone": "+7 (999) 123-45-67",
+    "companyEmail": "info@autoservice-pro.ru",
+    "currency": "RUB",
+    "taxRate": 20,
+    "workOrderPrefix": "WO",
+    "invoicePrefix": "INV"
+  },
+  "serviceCategories": [
+    "Техническое обслуживание",
+    "Ремонт двигателя",
+    "Ремонт ходовой",
+    "Ремонт электрооборудования",
+    "Кузовной ремонт",
+    "Диагностика",
+    "Шиномонтаж",
+    "Другие услуги"
+  ],
+  "vehicleBrands": [
+    "Audi",
+    "BMW",
+    "Ford",
+    "Honda",
+    "Hyundai",
+    "Kia",
+    "Lada",
+    "Mazda",
+    "Mercedes-Benz",
+    "Mitsubishi",
+    "Nissan",
+    "Renault",
+    "Skoda",
+    "Toyota",
+    "Volkswagen",
+    "Volvo"
+  ],
+  "defaultStatuses": {
+    "workOrder": [
+      "Новый",
+      "В работе",
+      "Ожидает запчастей",
+      "Завершен",
+      "Отменен"
+    ],
+    "invoice": [
+      "Черновик",
+      "Ожидает оплаты",
+      "Оплачен",
+      "Отменен"
+    ],
+    "appointment": [
+      "Запланирован",
+      "Подтвержден",
+      "Выполнен",
+      "Отменен"
+    ]
+  },
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin123",
+      "name": "Администратор",
+      "role": "admin",
+      "email": "admin@autoservice-pro.ru"
+    },
+    {
+      "id": 2,
+      "username": "mechanic",
+      "password": "mechanic123",
+      "name": "Иванов Иван",
+      "role": "mechanic",
+      "email": "mechanic@autoservice-pro.ru"
+    }
+  ]
+}

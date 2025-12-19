@@ -1,0 +1,227 @@
+﻿/* Мобильная версия */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 280px;
+        transition: transform 0.3s ease;
+    }
+
+        /* Меню в мобильной версии */
+        .sidebar.active {
+            transform: translateX(0);
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+
+    .submenu.open {
+        max-height: none;
+        display: block;
+        opacity: 1;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .navbar {
+        padding: 0 1rem;
+    }
+
+    .nav-brand span {
+        font-size: 1.2rem;
+    }
+
+    .content-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .content-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        flex: 1;
+        justify-content: center;
+        min-width: 120px;
+    }
+
+    /* Таблицы как списки */
+    .table-container {
+        overflow-x: visible;
+    }
+
+    .table {
+        display: block;
+    }
+
+        .table thead {
+            display: none;
+        }
+
+        .table tbody {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .table tr {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .table td {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border: none;
+            border-bottom: 1px solid #eee;
+        }
+
+            .table td:last-child {
+                border-bottom: none;
+            }
+
+            .table td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: var(--primary-color);
+                margin-right: 1rem;
+                flex: 1;
+            }
+
+            .table td .cell-content {
+                flex: 2;
+                text-align: right;
+            }
+
+    .table-actions {
+        justify-content: center;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+    }
+
+    /* Карточки */
+    .card {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Формы */
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+
+    /* Подменю */
+    .submenu {
+        padding-left: 1.5rem;
+    }
+
+    .menu-item {
+        padding: 0.8rem 1rem;
+    }
+
+    /* Отображение данных в мобильном виде */
+    .mobile-data-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .data-item {
+        background: white;
+        border-radius: var(--border-radius);
+        padding: 1rem;
+        box-shadow: var(--box-shadow);
+    }
+
+    .data-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #eee;
+    }
+
+        .data-row:last-child {
+            border-bottom: none;
+        }
+
+    .data-label {
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+
+    .data-value {
+        color: #666;
+    }
+
+    /* Печатные документы */
+    .print-document {
+        padding: 1rem;
+    }
+
+    .print-header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Дополнительно для очень маленьких экранов */
+@media (max-width: 480px) {
+    .content-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .nav-brand span {
+        font-size: 1rem;
+    }
+
+    .nav-user .user-name {
+        display: none;
+    }
+
+    .btn span {
+        display: none;
+    }
+
+    .btn i {
+        margin: 0;
+    }
+
+    .menu-header {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .menu-item {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+        /* Иконки в меню */
+        .menu-header i:first-child,
+        .menu-item i:first-child {
+            width: 20px;
+            text-align: center;
+        }
+
+    .menu-header span {
+        font-size: 0.9rem;
+    }
+
+    .menu-item span {
+        font-size: 0.9rem;
+    }
+}

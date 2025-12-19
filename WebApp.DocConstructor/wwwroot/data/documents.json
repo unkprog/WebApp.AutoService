@@ -1,0 +1,40 @@
+{
+  "documents": [],
+  "directories": {
+    "counterparties": {
+      "name": "Контрагенты",
+      "fields": [ "name", "inn", "kpp", "address", "phone", "email" ],
+      "items": []
+    },
+    "products": {
+      "name": "Товары/Услуги",
+      "fields": [ "code", "name", "unit", "price", "category" ],
+      "items": []
+    },
+    "organizations": {
+      "name": "Организации",
+      "fields": [ "name", "fullName", "inn", "kpp", "address", "director" ],
+      "items": []
+    }
+  },
+  "templates": {
+    "invoice": {
+      "name": "Накладная",
+      "description": "Товарная накладная (ТОРГ-12)",
+      "fields": [ "number", "date", "seller", "buyer", "items" ],
+      "layout": "standard"
+    },
+    "contract": {
+      "name": "Договор",
+      "description": "Типовой договор оказания услуг",
+      "fields": [ "number", "date", "parties", "subject", "terms", "price" ],
+      "layout": "contract"
+    },
+    "act": {
+      "name": "Акт выполненных работ",
+      "description": "Акт сдачи-приемки работ/услуг",
+      "fields": [ "number", "date", "contract", "performer", "customer", "works" ],
+      "layout": "standard"
+    }
+  }
+}

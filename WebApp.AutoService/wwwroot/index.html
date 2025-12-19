@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Design SPA</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/index-1024.css" media="(max-width: 1024px)">
+    <link rel="stylesheet" href="/css/index-768.css" media="(max-width: 768px)">
+    <link rel="stylesheet" href="/css/index-480.css" media="(max-width: 480px)">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="material-icons">menu</i>
+                </button>
+
+                <div class="header-title">
+                    <i class="material-icons">dashboard</i>
+                    <span>Material Design SPA</span>
+                    <div class="header-spinner" id="headerSpinner">
+                        <div class="mini-spinner"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-info">
+                <div class="user-avatar">JD</div>
+                <span class="user-name">John Doe</span>
+            </div>
+        </header>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar" id="sidebar">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#/analytics/dashboard" class="nav-link active" data-page="dashboard">
+                            <i class="material-icons">dashboard</i>
+                            <span>Дашборд</span>
+                        </a>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <a href="#documents" class="nav-link" data-page="documents">
+                            <i class="material-icons">description</i>
+                            <span>Документы</span>
+                        </a>
+                        <ul class="submenu">
+                            <li class="nav-item">
+                                <a href="#/documents/appointments" class="nav-link" data-page="documents-appointments">
+                                    <i class="material-icons">event_note</i>
+                                    <span>Запись клиентов</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#/documents/orders" class="nav-link" data-page="documents-orders">
+                                    <i class="material-icons">assignment</i>
+                                    <span>Заказ-наряды</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#/documents/inventories" class="nav-link" data-page="documents-inventories">
+                                    <i class="material-icons">inventory</i>
+                                    <span>Накладные</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu" id="analyticsMenu">
+                        <a href="#analytics" class="nav-link" data-page="analytics">
+                            <i class="material-icons">analytics</i>
+                            <span>Аналитика</span>
+                        </a>
+                        <ul class="submenu">
+                            <li class="nav-item">
+                                <a href="#/analytics/payments" class="nav-link" data-page="analytics-payments">
+                                    <i class="material-icons">payments</i>
+                                    <span>Финансы</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#/analytics/stats" class="nav-link" data-page="analytics-stats">
+                                    <i class="material-icons">query_stats</i>
+                                    <span>Статистика услуг</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <a href="#references" class="nav-link" data-page="references">
+                            <i class="material-icons">library_books</i>
+                            <span>Справочники</span>
+                        </a>
+                        <ul class="submenu">
+                            <li class="nav-item">
+                                <a href="#/references/cars" class="nav-link" data-page="references-cars">
+                                    <i class="material-icons">directions_car</i>
+                                    <span>Автомобили</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#/references/clients" class="nav-link" data-page="references-clients">
+                                    <i class="material-icons">group</i>
+                                    <span>Клиенты</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#/references/services" class="nav-link" data-page="references-services">
+                                    <i class="material-icons">handyman</i>
+                                    <span>Услуги</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#/references/parts" class="nav-link" data-page="references-parts">
+                                    <i class="material-icons">miscellaneous_services</i>
+                                    <span>Запчасти</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#/references/units" class="nav-link" data-page="references-units">
+                                    <i class="material-icons">straighten</i>
+                                    <span>Единицы измерения</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#/references/currencies" class="nav-link" data-page="references-currencies">
+                                    <i class="material-icons">monetization_on</i>
+                                    <span>Валюты</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#/settings" class="nav-link" data-page="settings">
+                            <i class="material-icons">settings</i>
+                            <span>Настройки</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#/help" class="nav-link" data-page="help">
+                            <i class="material-icons">help</i>
+                            <span>Help & Support</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Content Area -->
+            <main class="content-area" id="contentArea">
+                <h1 class="page-title" id="pageTitle"></h1>
+                <div id="pageContent">
+                    <!-- Content will be loaded here dynamically -->
+                </div>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <div>© 2023 Material Design SPA. All rights reserved.</div>
+                <div class="footer-links">
+                    <a href="#/privacy" class="footer-link">Privacy Policy</a>
+                    <a href="#/terms" class="footer-link">Terms of Service</a>
+                    <a href="#/contact" class="footer-link">Contact Us</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="js/core/app.js"></script>
+</body>
+</html>

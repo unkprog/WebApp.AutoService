@@ -1,0 +1,19 @@
+﻿# Enable CORS
+Header set Access-Control-Allow-Origin "*"
+
+# Enable gzip compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Set cache headers for static files
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico)$">
+    Header set Cache-Control "public, max-age=86400"
+</FilesMatch>
+
+# Prevent directory listing
+Options -Indexes
+
+# Custom error pages
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html

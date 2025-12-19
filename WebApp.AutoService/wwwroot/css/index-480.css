@@ -1,0 +1,13 @@
+﻿@media (max-width: 480px) {
+    .header-title span {
+        display: none;
+    }
+
+    .header-title i {
+        margin-right: 0;
+    }
+
+    .content-card {
+        padding: 16px;
+    }
+}
