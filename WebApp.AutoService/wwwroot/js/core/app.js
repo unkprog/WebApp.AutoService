@@ -1,6 +1,6 @@
 ﻿// Application state
 const AppState = {
-    currentPage: 'dashboard',
+    currentPage: '/',
     events: [],
     isMenuOpen: false,
     isMonitorOpen: false,
@@ -202,7 +202,7 @@ async function initApp() {
     // Initialize router
     const { default: Router } = await import("/js/core/router.js");
     const router = new Router(async (hash) => {
-        updatePageContent(hash, (hash == '/' ? '' : await contentLoader.loadCached(`/js/app${hash}.html`, elements.contentArea)));
+        loadPage(hash, (hash == '/' ? '' : await contentLoader.loadCached(`/js/app${hash}.html`, elements.contentArea)));
         return true;
     });
 
@@ -225,8 +225,8 @@ async function initApp() {
     //*** router.addRoute('/contact', () => loadPage('contact'));
 
     // Load page function
-    function loadPage(pageId, immediate = false) {
-        if (AppState.currentPage === pageId) return;
+    function loadPage(hash, content, immediate = false) {
+        if (AppState.currentPage === hash) return;
 
         // Show loading indicator
         loadingIndicator.show();
@@ -234,8 +234,9 @@ async function initApp() {
         // Update active nav link
         elements.navLinks.forEach(link => {
             link.classList.remove('active');
-            const linkPage = link.getAttribute('data-page');
-            if (linkPage === pageId) {
+            //const linkPage = link.getAttribute('data-page');
+            const href = link.getAttribute('href').substring(1);
+            if (href === hash) {
                 link.classList.add('active');
 
                 // Expand parent menu if this is a submenu item
@@ -247,26 +248,26 @@ async function initApp() {
             }
         });
 
-        //*** // If immediate load (no animation)
-        //*** if (immediate) {
-        //***     updatePageContent(pageId);
-        //***     loadingIndicator.hideImmediate();
-        //***     return;
-        //*** }
+        // If immediate load (no animation)
+        if (immediate) {
+            updatePageContent(hash, content);
+            loadingIndicator.hideImmediate();
+            return;
+        }
 
-        //*** // Simulate loading (in real app this would be AJAX request)
-        //*** setTimeout(() => {
-        //***     updatePageContent(pageId);
-        //***     loadingIndicator.hide();
-        //*** }, 600); // Simulated loading time
+        // Simulate loading (in real app this would be AJAX request)
+        setTimeout(() => {
+            updatePageContent(hash, content);
+            loadingIndicator.hide();
+        }, 150); // Simulated loading time
 
-        updatePageContent(pageId);
+        //updatePageContent(hash);
         loadingIndicator.hide();
     }
 
     // Update page content
     function updatePageContent(hash, content) {
-
+       
         // Add page transition animation
         elements.contentArea.classList.add('page-exit');
 
