@@ -11,170 +11,6 @@ const AppState = {
     }
 };
 
-// Page content templates
-const PageTemplates = {
-    dashboard: {
-        title: 'Дашборд',
-        content: `
-                                <div class="content-card">
-                                    <h2>Welcome back, ${AppState.user.name}!</h2>
-                                    <p>This is your dashboard where you can get an overview of your application.</p>
-                                    <p>Use the navigation menu to access different sections of the application.</p>
-                                </div>
-                                <div class="content-grid">
-                                    <div class="grid-item">
-                                        <h3>Quick Stats</h3>
-                                        <p>Users: 1,254</p>
-                                        <p>Products: 342</p>
-                                        <p>Orders: 89</p>
-                                    </div>
-                                    <div class="grid-item">
-                                        <h3>Recent Activity</h3>
-                                        <p>New user registration: 5</p>
-                                        <p>Product updates: 12</p>
-                                        <p>Support tickets: 3</p>
-                                    </div>
-                                    <div class="grid-item">
-                                        <h3>Performance</h3>
-                                        <p>Page load: 1.2s</p>
-                                        <p>Uptime: 99.8%</p>
-                                        <p>API response: 240ms</p>
-                                    </div>
-                                </div>
-                            `
-    },
-    'products-list': {
-        title: 'All Products',
-        content: `
-                                <div class="content-card">
-                                    <h2>Product Management</h2>
-                                    <p>Manage your product catalog from this section. You can add, edit, or remove products.</p>
-                                </div>
-                                <div class="content-grid">
-                                    <div class="grid-item">
-                                        <h3>Electronics</h3>
-                                        <p>Smartphones: 45 items</p>
-                                        <p>Laptops: 32 items</p>
-                                        <p>Accessories: 89 items</p>
-                                    </div>
-                                    <div class="grid-item">
-                                        <h3>Home & Garden</h3>
-                                        <p>Furniture: 67 items</p>
-                                        <p>Decorations: 124 items</p>
-                                        <p>Tools: 45 items</p>
-                                    </div>
-                                    <div class="grid-item">
-                                        <h3>Clothing</h3>
-                                        <p>Men's: 89 items</p>
-                                        <p>Women's: 112 items</p>
-                                        <p>Children's: 56 items</p>
-                                    </div>
-                                </div>
-                            `
-    },
-    'products-add': {
-        title: 'Add New Product',
-        content: `
-                                <div class="content-card">
-                                    <h2>Add New Product</h2>
-                                    <p>Use this form to add a new product to your catalog.</p>
-                                    <div style="margin-top: 20px;">
-                                        <div style="margin-bottom: 16px;">
-                                            <label style="display: block; margin-bottom: 8px; font-weight: 500;">Product Name</label>
-                                            <input type="text" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px;">
-                                        </div>
-                                        <div style="margin-bottom: 16px;">
-                                            <label style="display: block; margin-bottom: 8px; font-weight: 500;">Description</label>
-                                            <textarea style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; min-height: 100px;"></textarea>
-                                        </div>
-                                        <button style="background-color: var(--primary-color); color: white; border: none; padding: 12px 24px; border-radius: 4px; cursor: pointer;">Add Product</button>
-                                    </div>
-                                </div>
-                            `
-    },
-    'products-categories': {
-        title: 'Product Categories',
-        content: `
-                                <div class="content-card">
-                                    <h2>Product Categories</h2>
-                                    <p>Manage your product categories from this section.</p>
-                                </div>
-                            `
-    },
-    'analytics-overview': {
-        title: 'Analytics Overview',
-        content: `
-                                <div class="content-card">
-                                    <h2>Analytics Overview</h2>
-                                    <p>View your application analytics and metrics.</p>
-                                </div>
-                            `
-    },
-    'analytics-reports': {
-        title: 'Analytics Reports',
-        content: `
-                                <div class="content-card">
-                                    <h2>Analytics Reports</h2>
-                                    <p>Generate and view detailed analytics reports.</p>
-                                </div>
-                            `
-    },
-    'analytics-export': {
-        title: 'Export Data',
-        content: `
-                                <div class="content-card">
-                                    <h2>Export Data</h2>
-                                    <p>Export your analytics data in various formats.</p>
-                                </div>
-                            `
-    },
-    settings: {
-        title: 'Settings',
-        content: `
-                                <div class="content-card">
-                                    <h2>Application Settings</h2>
-                                    <p>Configure your application settings from this section.</p>
-                                </div>
-                            `
-    },
-    help: {
-        title: 'Help & Support',
-        content: `
-                                <div class="content-card">
-                                    <h2>Help & Support</h2>
-                                    <p>Get help and support for using the application.</p>
-                                </div>
-                            `
-    },
-    privacy: {
-        title: 'Privacy Policy',
-        content: `
-                                <div class="content-card">
-                                    <h2>Privacy Policy</h2>
-                                    <p>This is our privacy policy content.</p>
-                                </div>
-                            `
-    },
-    terms: {
-        title: 'Terms of Service',
-        content: `
-                                <div class="content-card">
-                                    <h2>Terms of Service</h2>
-                                    <p>These are our terms of service.</p>
-                                </div>
-                            `
-    },
-    contact: {
-        title: 'Contact Us',
-        content: `
-                                <div class="content-card">
-                                    <h2>Contact Us</h2>
-                                    <p>Get in touch with us through this page.</p>
-                                </div>
-                            `
-    }
-};
-
 // DOM Elements
 const elements = {
     sidebar: document.getElementById('sidebar'),
@@ -202,27 +38,14 @@ async function initApp() {
     // Initialize router
     const { default: Router } = await import("/js/core/router.js");
     const router = new Router(async (hash) => {
-        loadPage(hash, (hash == '/' ? '' : await contentLoader.loadCached(`/js/app${hash}.html`, elements.contentArea)));
+        const loasdHash = (hash == '/' ? '/analytics/dashboard' : hash);
+        loadPage(hash, await contentLoader.loadCached(`/js/app${hash}.html`));
         return true;
     });
 
     // Initialize event monitor
     const { default: EventMonitor } = await import("/js/core/eventMonitor.js");
-    const eventMonitor = new EventMonitor();
-
-    //*** // Setup routes
-    //*** router.addRoute('/', () => loadPage('dashboard'));
-    //*** router.addRoute('/products/list', () => loadPage('products-list'));
-    //*** router.addRoute('/products/add', () => loadPage('products-add'));
-    //*** router.addRoute('/products/categories', () => loadPage('products-categories'));
-    //*** router.addRoute('/analytics/overview', () => loadPage('analytics-overview'));
-    //*** router.addRoute('/analytics/reports', () => loadPage('analytics-reports'));
-    //*** router.addRoute('/analytics/export', () => loadPage('analytics-export'));
-    //*** router.addRoute('/settings', () => loadPage('settings'));
-    //*** router.addRoute('/help', () => loadPage('help'));
-    //*** router.addRoute('/privacy', () => loadPage('privacy'));
-    //*** router.addRoute('/terms', () => loadPage('terms'));
-    //*** router.addRoute('/contact', () => loadPage('contact'));
+    const eventMonitor = new EventMonitor(AppState);
 
     // Load page function
     function loadPage(hash, content, immediate = false) {
@@ -271,11 +94,12 @@ async function initApp() {
         // Add page transition animation
         elements.contentArea.classList.add('page-exit');
 
-        setTimeout(() => {
+        setTimeout(async () => {
             // Update content
-            //elements.pageTitle.textContent = page.title;
-            elements.pageContent.innerHTML = content;
-            AppState.currentPage = hash; //*** pageId;
+            //***elements.pageContent.innerHTML = content;
+            await contentLoader.setContent(content, elements.contentArea);
+
+            AppState.currentPage = hash; 
 
             // Add enter animation
             elements.contentArea.classList.remove('page-exit');
@@ -488,6 +312,8 @@ async function initApp() {
             toggleMenu();
         }
     });
+
+    window.location.href = '/#/references/currencies'; // '/#/analytics/dashboard';
 }
 
 // Start the application when DOM is loaded

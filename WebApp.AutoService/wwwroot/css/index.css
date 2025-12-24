@@ -211,12 +211,20 @@ body {
     padding: 24px;
     overflow-y: auto;
     position: relative;
+    height: 100%;
+}
+
+#pageContent {
+    height: 100%;
+}
+
+.page-title-container {
+    margin-bottom: 24px;
 }
 
 .page-title {
     font-size: 2rem;
     font-weight: 500;
-    margin-bottom: 24px;
     color: var(--primary-variant);
 }
 
@@ -257,7 +265,6 @@ body {
         transform: translateY(-4px);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
-
 /* Footer */
 .app-footer {
     background-color: var(--primary-variant);
@@ -288,7 +295,6 @@ body {
     .footer-link:hover {
         color: var(--secondary-color);
     }
-
 /* Loading Indicator */
 .loading-overlay {
     position: fixed;
@@ -333,7 +339,6 @@ body {
     color: var(--primary-color);
     font-weight: 500;
 }
-
 /* Progress bar at the top */
 .progress-bar {
     position: fixed;
@@ -362,7 +367,6 @@ body {
         transform: rotate(360deg);
     }
 }
-
 /* Event Monitor */
 .event-monitor {
     position: fixed;
@@ -436,7 +440,6 @@ body {
     .toggle-monitor:hover {
         transform: scale(1.1);
     }
-
 /* Animation for page transitions */
 .page-enter {
     opacity: 0;
@@ -458,4 +461,81 @@ body {
     opacity: 0;
     transform: translateY(-20px);
     transition: opacity 0.15s, transform 0.15s;
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 256px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        height: calc(100vh - 64px);
+        transform: translateX(-100%);
+    }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+    .main-layout {
+        flex-direction: column;
+    }
+
+    .content-area {
+        padding: 16px;
+    }
+
+    .page-title-container {
+        margin-bottom: 12px;
+    }
+
+    .page-title {
+        font-size: 1.43rem;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .user-name {
+        display: none;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .event-monitor {
+        width: calc(100% - 48px);
+        right: 16px;
+        bottom: 90px;
+    }
+
+    .progress-bar {
+        top: 64px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-title span {
+        display: none;
+    }
+
+    .header-title i {
+        margin-right: 0;
+    }
+
+    .content-card {
+        padding: 16px;
+    }
 }

@@ -1,1 +1,19 @@
-﻿
+﻿<div class="buttons-group page-title-container">
+    <h1 class="page-title">Валюты</h1>
+
+    <button class="fab-button" id="fab1" style="margin-left:auto;">
+        <span class="material-symbols-outlined">add</span>
+    </button>
+
+</div>
+
+<div id="currencies-card" class="table-card">
+</div>
+
+<script>
+    (async () => {
+        const { default: CurrenciesHtml } = await import("/js/app/references/currencies.html.js");
+        const currenciesHtml = new CurrenciesHtml();
+        currenciesHtml.init();
+    })();
+</script>

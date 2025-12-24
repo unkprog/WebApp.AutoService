@@ -12,8 +12,8 @@
     <Folder Include="api\references\Models\" />
     <Folder Include="api\settings\" />
     <Folder Include="api\help\" />
-    <Folder Include="wwwroot\js\app\settings\" />
     <Folder Include="wwwroot\js\app\help\" />
+    <Folder Include="wwwroot\js\app\settings\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +26,7 @@
     <Content Update="wwwroot\js\app\documents\orders.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Update="wwwroot\js\app\references\currencies.js" DependentUpon="currencies.html" CopyToOutputDirectory="PreserveNewest"/>
   </ItemGroup>
-
+  
 </Project>

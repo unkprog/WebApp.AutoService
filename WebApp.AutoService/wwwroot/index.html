@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Material Design SPA</title>
     <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/index-1024.css" media="(max-width: 1024px)">
-    <link rel="stylesheet" href="/css/index-768.css" media="(max-width: 768px)">
-    <link rel="stylesheet" href="/css/index-480.css" media="(max-width: 480px)">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/button.css" />
+    <link rel="stylesheet" href="/css/table.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
     <div class="app-container">
@@ -41,31 +41,31 @@
             <nav class="sidebar" id="sidebar">
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="#/analytics/dashboard" class="nav-link active" data-page="dashboard">
+                        <a href="#/analytics/dashboard" class="nav-link active">
                             <i class="material-icons">dashboard</i>
                             <span>Дашборд</span>
                         </a>
                     </li>
                     <li class="nav-item has-submenu">
-                        <a href="#documents" class="nav-link" data-page="documents">
+                        <a href="#documents" class="nav-link">
                             <i class="material-icons">description</i>
                             <span>Документы</span>
                         </a>
                         <ul class="submenu">
                             <li class="nav-item">
-                                <a href="#/documents/appointments" class="nav-link" data-page="documents-appointments">
+                                <a href="#/documents/appointments" class="nav-link">
                                     <i class="material-icons">event_note</i>
                                     <span>Запись клиентов</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#/documents/orders" class="nav-link" data-page="documents-orders">
+                                <a href="#/documents/orders" class="nav-link">
                                     <i class="material-icons">assignment</i>
                                     <span>Заказ-наряды</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#/documents/inventories" class="nav-link" data-page="documents-inventories">
+                                <a href="#/documents/inventories" class="nav-link">
                                     <i class="material-icons">inventory</i>
                                     <span>Накладные</span>
                                 </a>
@@ -73,19 +73,19 @@
                         </ul>
                     </li>
                     <li class="nav-item has-submenu" id="analyticsMenu">
-                        <a href="#analytics" class="nav-link" data-page="analytics">
+                        <a href="#analytics" class="nav-link">
                             <i class="material-icons">analytics</i>
                             <span>Аналитика</span>
                         </a>
                         <ul class="submenu">
                             <li class="nav-item">
-                                <a href="#/analytics/payments" class="nav-link" data-page="analytics-payments">
+                                <a href="#/analytics/payments" class="nav-link">
                                     <i class="material-icons">payments</i>
                                     <span>Финансы</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#/analytics/stats" class="nav-link" data-page="analytics-stats">
+                                <a href="#/analytics/stats" class="nav-link">
                                     <i class="material-icons">query_stats</i>
                                     <span>Статистика услуг</span>
                                 </a>
@@ -93,43 +93,43 @@
                         </ul>
                     </li>
                     <li class="nav-item has-submenu">
-                        <a href="#references" class="nav-link" data-page="references">
+                        <a href="#references" class="nav-link">
                             <i class="material-icons">library_books</i>
                             <span>Справочники</span>
                         </a>
                         <ul class="submenu">
                             <li class="nav-item">
-                                <a href="#/references/cars" class="nav-link" data-page="references-cars">
+                                <a href="#/references/cars" class="nav-link">
                                     <i class="material-icons">directions_car</i>
                                     <span>Автомобили</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#/references/clients" class="nav-link" data-page="references-clients">
+                                <a href="#/references/clients" class="nav-link">
                                     <i class="material-icons">group</i>
                                     <span>Клиенты</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#/references/services" class="nav-link" data-page="references-services">
+                                <a href="#/references/services" class="nav-link">
                                     <i class="material-icons">handyman</i>
                                     <span>Услуги</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#/references/parts" class="nav-link" data-page="references-parts">
+                                <a href="#/references/parts" class="nav-link">
                                     <i class="material-icons">miscellaneous_services</i>
                                     <span>Запчасти</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#/references/units" class="nav-link" data-page="references-units">
+                                <a href="#/references/units" class="nav-link">
                                     <i class="material-icons">straighten</i>
                                     <span>Единицы измерения</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#/references/currencies" class="nav-link" data-page="references-currencies">
+                                <a href="#/references/currencies" class="nav-link">
                                     <i class="material-icons">monetization_on</i>
                                     <span>Валюты</span>
                                 </a>
@@ -137,13 +137,13 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="#/settings" class="nav-link" data-page="settings">
+                        <a href="#/settings" class="nav-link">
                             <i class="material-icons">settings</i>
                             <span>Настройки</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#/help" class="nav-link" data-page="help">
+                        <a href="#/help" class="nav-link">
                             <i class="material-icons">help</i>
                             <span>Help & Support</span>
                         </a>
@@ -153,7 +153,7 @@
 
             <!-- Content Area -->
             <main class="content-area" id="contentArea">
-                <h1 class="page-title" id="pageTitle"></h1>
+                <!--h1 class="page-title" id="pageTitle"></h1-->
                 <div id="pageContent">
                     <!-- Content will be loaded here dynamically -->
                 </div>
@@ -173,6 +173,6 @@
         </footer>
     </div>
 
-    <script type="text/javascript" src="js/core/app.js"></script>
+    <script type="module" src="/js/core/app.js"></script>
 </body>
 </html>

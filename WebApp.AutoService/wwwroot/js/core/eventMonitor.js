@@ -7,8 +7,11 @@ export default class EventMonitor {
         toggleMonitor: undefined,
     }
 
-    constructor() {
+    #appState;
+
+    constructor(appState) {
         this.maxEvents = 50;
+        this.#appState = appState;
         this.#initUI();
     }
 
@@ -51,11 +54,11 @@ export default class EventMonitor {
             timestamp: new Date().toLocaleTimeString()
         };
 
-        AppState.events.unshift(event);
+        this.#appState.events.unshift(event);
 
         // Limit the number of stored events
-        if (AppState.events.length > this.maxEvents) {
-            AppState.events.pop();
+        if (this.#appState.events.length > this.maxEvents) {
+            this.#appState.events.pop();
         }
 
         this.updateDisplay();
@@ -64,7 +67,7 @@ export default class EventMonitor {
     updateDisplay() {
         this.#elements.eventList.innerHTML = '';
 
-        AppState.events.forEach(event => {
+        this.#appState.events.forEach(event => {
             const li = document.createElement('li');
             li.className = 'event-item';
             li.innerHTML = `
@@ -76,16 +79,16 @@ export default class EventMonitor {
     }
 
     clearEvents() {
-        AppState.events = [];
+        this.#appState.events = [];
         this.updateDisplay();
     }
 
     toggleMonitor() {
-        AppState.isMonitorOpen = !AppState.isMonitorOpen;
-        this.#elements.eventMonitor.classList.toggle('open', AppState.isMonitorOpen);
+        this.#appState.isMonitorOpen = !this.#appState.isMonitorOpen;
+        this.#elements.eventMonitor.classList.toggle('open', this.#appState.isMonitorOpen);
 
         const icon = this.#elements.toggleMonitor.querySelector('i');
-        icon.textContent = AppState.isMonitorOpen ? 'visibility_off' : 'visibility';
+        icon.textContent = this.#appState.isMonitorOpen ? 'visibility_off' : 'visibility';
     }
 
     setEventListeners() {

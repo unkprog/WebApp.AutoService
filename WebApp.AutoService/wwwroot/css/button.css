@@ -1,0 +1,144 @@
+﻿/* FAB стиль */
+.fab-button {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2), 0 1px 18px rgba(0,0,0,0.12), 0 6px 10px rgba(0,0,0,0.14);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .fab-button:hover {
+        background-color: var(--primary-variant);
+        box-shadow: 0 6px 10px rgba(0,0,0,0.25), 0 10px 30px rgba(0,0,0,0.16), 0 14px 24px rgba(0,0,0,0.19);
+    }
+
+    .fab-button:active {
+        background-color: var(--primary-color);
+        transform: scale(0.95);
+    }
+
+    .fab-button span {
+        font-size: 24px;
+        user-select: none;
+    }
+
+/* Расширенная FAB с текстом */
+.fab-extended {
+    width: auto;
+    padding: 0 20px;
+    border-radius: 28px;
+    gap: 8px;
+}
+
+/* Обычная кнопка в Material стиле */
+.material-button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+}
+
+    .material-button:hover {
+        background-color: var(--primary-variant);
+        box-shadow: 0 2px 4px -1px rgba(0,0,0,0.2), 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12);
+    }
+
+    .material-button:active {
+        background-color: var(--primary-color);
+    }
+
+    /* Кнопка с контуром */
+    .material-button.outlined {
+        background-color: transparent;
+        color: var(--secondary-color);
+        border: 1px solid rgba(98, 0, 238, 0.5);
+        box-shadow: none;
+    }
+
+        .material-button.outlined:hover {
+            background-color: rgba(98, 0, 238, 0.04);
+        }
+
+        .material-button.outlined:active {
+            background-color: rgba(98, 0, 238, 0.12);
+        }
+
+    /* Кнопка с текстом */
+    .material-button.text {
+        background-color: transparent;
+        color: var(--secondary-color);
+        box-shadow: none;
+        padding: 10px 12px;
+    }
+
+        .material-button.text:hover {
+            background-color: rgba(98, 0, 238, 0.04);
+        }
+
+        .material-button.text:active {
+            background-color: rgba(98, 0, 238, 0.12);
+        }
+
+/* Контейнер для демонстрации */
+.demo-section {
+    margin-bottom: 30px;
+}
+
+    .demo-section h3 {
+        margin-bottom: 15px;
+        color: #333;
+        font-weight: 500;
+    }
+
+.buttons-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.code-block {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    white-space: pre-wrap;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
