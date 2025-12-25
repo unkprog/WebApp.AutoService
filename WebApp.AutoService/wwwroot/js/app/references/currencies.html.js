@@ -1,6 +1,7 @@
 ﻿export default class CurrenciesHtml {
 
     #table;
+    #buttonAdd;
 
     async init() {
         const { default: Table } = await import("/js/ui/table.js");
@@ -25,6 +26,23 @@
         ];
 
         this.#table.renderData(headers, tableData);
+
+        this.#buttonAdd = document.getElementById('currencies-card-button-add');
+        this.#buttonAdd.addEventListener('click', async (e) => await this.#buttonAddClick(e));
+    }
+
+    async #buttonAddClick(e) {
+        await this.#initForm();
+        this.#form.Show();
+    }
+
+    #form;
+    async #initForm() {
+        if (this.#form)
+            return;
+
+        const { default: Form } = await import("/js/ui/form.js");
+        this.#form = new Form({ attr: { id: "currencies-form" } });
     }
 }
 
