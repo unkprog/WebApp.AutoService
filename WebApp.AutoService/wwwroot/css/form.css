@@ -194,9 +194,10 @@ input[type="radio"], input[type="checkbox"] {
 
 /* Заголовок формы */
 .form-header {
-    background: linear-gradient(135deg, #6200ee, #3700b3);
-    color: white;
-    padding: 20px 24px;
+    background-color: var(--secondary-color);
+    color: var(--on-primary);
+    height: 64px;
+    padding: 0px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;

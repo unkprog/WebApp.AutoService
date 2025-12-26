@@ -26,13 +26,13 @@ const elements = {
 // Initialize the application
 async function initApp() {
     // Initialize loading indicator
-    const { default: LoadingIndicator } = await import("/js/core/loadingIndicator.js");
+    const { default: LoadingIndicator } = await import("/js/core/loading.indicator.js");
     const loadingIndicator = new LoadingIndicator();
     // Show loading indicator
     //loadingIndicator.show();
 
     // Initialize content loader
-    const { default: ContentLoader } = await import("/js/core/contentLoader.js");
+    const { default: ContentLoader } = await import("/js/core/content.loader.js");
     const contentLoader = new ContentLoader();
 
     // Initialize router
@@ -44,7 +44,7 @@ async function initApp() {
     });
 
     // Initialize event monitor
-    const { default: EventMonitor } = await import("/js/core/eventMonitor.js");
+    const { default: EventMonitor } = await import("/js/core/event.monitor.js");
     const eventMonitor = new EventMonitor(AppState);
 
     // Load page function

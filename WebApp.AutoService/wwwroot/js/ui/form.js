@@ -1,11 +1,11 @@
-﻿
-export default class Form {
+﻿export default class Form {
     #form;
     #formOverlay;
     #formButtonClose;
 
 
     #formOptions = {
+        title: 'Форма',
         position: 'right',
         size: 'medium',
         showOverlay: true,
@@ -36,70 +36,43 @@ export default class Form {
         this.#applySize();
 
         this.#form.innerHTML = `<div class="form-header">
-                                    <h2 id="${this.#form.id}-title">Редактирование записи</h2>
+                                    <h2 id="${this.#form.id}-title">${this.#formOptions.title}</h2>
                                     <button id="${this.#form.id}-close-btn" class="form-close-btn">
                                         <span class="material-icons">close</span>
                                     </button>
                                 </div>
                                 
                                 <div class="form-content">
-                                    <form id="editForm">
-                                        <div class="form-group">
-                                            <label for="title">Название записи</label>
-                                            <input type="text" id="title" class="form-control" placeholder="Введите название">
-                                        </div>
-                                
-                                        <div class="form-group">
-                                            <label for="description">Описание</label>
-                                            <textarea id="description" class="form-control" placeholder="Введите описание"></textarea>
-                                        </div>
-                                
-                                        <div class="form-group">
-                                            <label for="category">Категория</label>
-                                            <select id="category" class="form-control">
-                                                <option value="">Выберите категорию</option>
-                                                <option value="important">Важная</option>
-                                                <option value="normal">Обычная</option>
-                                                <option value="low">Низкий приоритет</option>
-                                            </select>
-                                        </div>
-                                
-                                        <div class="form-group">
-                                            <label for="status">Статус</label>
-                                            <select id="status" class="form-control">
-                                                <option value="active">Активен</option>
-                                                <option value="inactive">Неактивен</option>
-                                                <option value="archived">В архиве</option>
-                                            </select>
-                                        </div>
-                                
-                                        <div class="form-group">
-                                            <label for="date">Дата</label>
-                                            <input type="date" id="date" class="form-control">
-                                        </div>
-                                
-                                        <div class="form-group">
-                                            <label for="tags">Теги (через запятую)</label>
-                                            <input type="text" id="tags" class="form-control" placeholder="тег1, тег2, тег3">
-                                        </div>
-                                    </form>
+                                    ${this.TemplateContent}
                                 </div>
                                 
                                 <div class="form-footer">
-                                    <button class="form-btn form-btn-cancel" onclick="closeForm()">
-                                        <span class="material-icons">close</span>
-                                        Отмена
-                                    </button>
-                                    <button class="form-btn form-btn-save" onclick="saveForm()">
-                                        <span class="material-icons">save</span>
-                                        Сохранить
-                                    </button>
+                                    ${this.TemplateFooter}
                                 </div>`;
 
+        this._initControls();
+        document.body.appendChild(this.#form);
+    }
 
+    _initControls() {
         this.#formButtonClose = this.#form.querySelector(`#${this.#form.id}-close-btn`);
         this.#formButtonClose.addEventListener('click', () => this.Hide());
-        document.body.appendChild(this.#form);
+    }
+
+    get FormId() {
+        return this.#form.id;
+    }
+
+    get Form() {
+        return this.#form;
+    }
+
+    get TemplateContent() {
+        return ``;
+    }
+
+    get TemplateFooter() {
+        return ``;
     }
 
     // Установка позиции
@@ -111,9 +84,6 @@ export default class Form {
 
         // Добавляем нужный класс
         this.#form.classList.add(`position-${this.#formOptions.position}`);
-
-        //***updateConfigDisplay();
-        //***highlightActivePreview();
     }
 
     // Установка размера
@@ -125,40 +95,28 @@ export default class Form {
 
         // Добавляем нужный класс
         this.#form.classList.add(`size-${this.#formOptions.size}`);
-
-        //***updateConfigDisplay();
     }
 
     // Открытие формы
     Show() {
-        //// Устанавливаем заголовок
-        //document.getElementById('formTitle').textContent = 'Редактирование записи';
-
         // Показываем форму
         this.#form.classList.add('active');
         this.#showOverlay();
-
-        //*** ??? // Блокируем скролл body
-        //*** ??? document.body.style.overflow = 'hidden';
     }
 
     // Закрытие формы
     Hide() {
+
         this.#form.classList.remove('active');
         this.#hideOverlay();
 
-        //*** document.body.style.overflow = '';
-        //*** // Очищаем форму
-        //*** document.getElementById('editForm').reset();
     }
 
     // Закрытие по клику на оверлей
     #hideOnOverlayClick() {
         if (this.#formOptions.closeOnOverlayClick)
             this.Hide();
-
     }
-
 
     #handleOverlayClick;
     // Показываем затемнение фона если нужно

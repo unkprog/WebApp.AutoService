@@ -269,7 +269,7 @@ body {
 .app-footer {
     background-color: var(--primary-variant);
     color: var(--on-primary);
-    padding: 20px 24px;
+    padding: 10px 24px;
     text-align: center;
     margin-top: auto;
 }
