@@ -1,6 +1,7 @@
 ﻿import Form from "./form.js";
 
 export default class FormEdit extends Form {
+
     constructor(options) {
         super(options)
     }
@@ -31,16 +32,7 @@ export default class FormEdit extends Form {
     Hide() {
         super.Hide();
         // Очищаем форму
-        document.getElementById(`${this.FormId}-edit-fields`).reset();
-    }
-
-
-    #dataContext = {};
-
-    get DataContext() { this.#dataContext; }
-    set DataContext(value) {
-        this.#dataContext = value;
-        this._updateDataContext();
+        this.#formEditFields?.reset();
     }
 
     get _loadDataContextUrl() {
@@ -51,6 +43,14 @@ export default class FormEdit extends Form {
         return '';
     }
 
+    #dataContext = {};
+
+    get DataContext() { this.#dataContext; }
+    set DataContext(value) {
+        this.#dataContext = value;
+        this._updateDataContext();
+    }
+
     LoadDataContext(id) {
 
     }
@@ -59,7 +59,9 @@ export default class FormEdit extends Form {
 
     }
 
+    #formEditFields;
     _initControls() {
         super._initControls();
+        this.#formEditFields = this.Form.querySelector(`#${this.FormId}-edit-fields`);
     }
 }

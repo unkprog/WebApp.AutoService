@@ -1,6 +1,7 @@
 ﻿import FormEdit from "../../ui/form.edit.js";
 
 export default class CurrenciesFormEdit extends FormEdit {
+
     constructor(options) {
         super(options)
     }
@@ -22,25 +23,21 @@ export default class CurrenciesFormEdit extends FormEdit {
     }
 
 
-    _updateDataContext() {
-
-    }
-
-    inputCode;
-    inputSymbol;
-    inputName;
+    #inputCode;
+    #inputSymbol;
+    #inputName;
 
     _initControls() {
+        this.#inputCode = this.Form.querySelector(`#${this.FormId}-code`);
+        this.#inputSymbol = this.Form.querySelector(`#${this.FormId}-symbol`);
+        this.#inputName = this.Form.querySelector(`#${this.FormId}-name`);
         super._initControls();
-        this.inputCode = this.Form.querySelector(`#${this.FormId}-code`);
-        this.inputSymbol = this.Form.querySelector(`#${this.FormId}-symbol`);
-        this.inputName = this.Form.querySelector(`#${this.FormId}-name`);
     }
 
     _updateDataContext() {
         const dataContext = this.DataContext;
-        this.inputCode.value = dataContext?.Code;
-        this.inputSymbol.value = dataContext?.Symbol;
-        this.inputName.value = dataContext?.Name;
+        this.#inputCode.value = dataContext?.Code;
+        this.#inputSymbol.value = dataContext?.Symbol;
+        this.#inputName.value = dataContext?.Name;
     }
 }
