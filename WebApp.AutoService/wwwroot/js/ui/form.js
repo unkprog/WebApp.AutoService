@@ -2,7 +2,7 @@
     #form;
     #formOverlay;
     #formButtonClose;
-
+    #handleOverlayClick;
 
     #formOptions = {
         title: 'Форма',
@@ -21,15 +21,20 @@
         return Date.now().toString(36) + Math.random().toString(36).substring(2);
     }
 
-
     constructor(options) {
         this.#formOptions = { ...this.#formOptions, ...options };
+    }
+
+    Render() {
         this.#form = document.createElement('div');
+
         if (!this.#formOptions.attr.id)
             this.#formOptions.attr.id = `form-${this.#generateId()}`;
-        this.#form.id = this.#formOptions?.attr?.id;
-        this.#form.classList.add(`universal-form`);
-        if (this.#formOptions.attr.class)
+
+        this.#form.id = this.#formOptions.attr.id;
+        this.#form.classList.add('universal-form');
+
+        if (this.#formOptions.attr.class) 
             this.#form.classList.add(this.#formOptions.attr.class);
 
         this.#applyPosition();
@@ -56,7 +61,8 @@
 
     _initControls() {
         this.#formButtonClose = this.#form.querySelector(`#${this.#form.id}-close-btn`);
-        this.#formButtonClose.addEventListener('click', () => this.Hide());
+        if (this.#formButtonClose)
+            this.#formButtonClose.addEventListener('click', () => this.Hide());
     }
 
     get FormId() {
@@ -77,52 +83,37 @@
 
     // Установка позиции
     #applyPosition() {
-        //???formConfig.position = position;
-
-        // Удаляем все классы позиции
         this.#form.classList.remove('position-right', 'position-left', 'position-center', 'position-bottom');
-
-        // Добавляем нужный класс
         this.#form.classList.add(`position-${this.#formOptions.position}`);
     }
 
     // Установка размера
     #applySize() {
-        //???formConfig.size = size;
-
-        // Удаляем все классы размера
         this.#form.classList.remove('size-small', 'size-medium', 'size-large', 'size-full');
-
-        // Добавляем нужный класс
         this.#form.classList.add(`size-${this.#formOptions.size}`);
     }
 
     // Открытие формы
     Show() {
-        // Показываем форму
         this.#form.classList.add('active');
         this.#showOverlay();
     }
 
     // Закрытие формы
     Hide() {
-
         this.#form.classList.remove('active');
         this.#hideOverlay();
-
     }
 
     // Закрытие по клику на оверлей
-    #hideOnOverlayClick() {
+    #hideOnOverlayClick = () => {
         if (this.#formOptions.closeOnOverlayClick)
             this.Hide();
     }
 
-    #handleOverlayClick;
     // Показываем затемнение фона если нужно
     #showOverlay() {
-        if (!this.#formOptions.showOverlay)
-            return;
+        if (!this.#formOptions.showOverlay) return;
 
         this.#setupOverlay();
         this.#formOverlay.addEventListener('click', this.#handleOverlayClick);
@@ -130,16 +121,16 @@
     }
 
     #hideOverlay() {
-        if (!this.#formOverlay)
-            return;
+        if (!this.#formOverlay) return;
 
-        this.#formOverlay.removeEventListener('click', this.handleClick);
+        this.#formOverlay.removeEventListener('click', this.#handleOverlayClick);
         this.#formOverlay.classList.remove('active');
     }
 
     #setupOverlay() {
-        if (!this.#formOverlay)
+        if (!this.#formOverlay) 
             this.#formOverlay = document.getElementById('formOverlay');
+
         if (!this.#formOverlay) {
             this.#formOverlay = document.createElement('div');
             this.#formOverlay.id = 'formOverlay';
